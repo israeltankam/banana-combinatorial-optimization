@@ -34,12 +34,16 @@ function [poss,tab] = next_compostisions(n,k,input_tab)
     end
 endfunction
 function tab_compositions = all_compositions(n,k)
-    tab_compositions = []
-[poss, tab] = get_first_composition(n,k)
-while poss
-    tab_compositions = [tab_compositions;tab]
-    [poss, tab] = next_compostisions(n,k,tab)
-end
+    if n==k then
+        tab_compositions = ones(1,k)
+    else
+        tab_compositions = []
+        [poss, tab] = get_first_composition(n,k)
+        while poss
+             tab_compositions = [tab_compositions;tab]
+             [poss, tab] = next_compostisions(n,k,tab)
+        end
+    end
 endfunction
 
 //Example
