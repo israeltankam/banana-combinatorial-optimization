@@ -186,13 +186,11 @@
            for i=1:number_of_compositions
                distribution = matrix_compositions(i,:)
                profit_temp = profit(distribution)
-               disp(distribution)
                if profit_temp > profit_max then
                    optimal = distribution
                    profit_max = profit_temp
                end
            end           
        end
-       disp("---------")
        disp(optimal)
        disp(profit_max)
